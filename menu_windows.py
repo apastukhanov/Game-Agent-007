@@ -10,22 +10,19 @@ class SettingsWindow(QWidget):
         self._create_widgets()
         self._create_layout()
         self._setup_window()
-        self.read_settings()
+        self.set_saved_settings()
 
     def _create_widgets(self):
-        # Создаем поля для ввода имени и выбора уровня сложности
         self.name_edit = QLineEdit()
         self.level_combo = QComboBox()
         self.level_combo.addItems(['Уровень 1', 'Уровень 2', 'Уровень 3'])
 
-        # Создаем кнопки "Применить" и "Отмена"
         self.apply_button = QPushButton('Применить')
         self.apply_button.clicked.connect(self.apply_settings)
         self.cancel_button = QPushButton('Отмена')
         self.cancel_button.clicked.connect(self.close)
 
     def _create_layout(self):
-        # Размещаем элементы на форме
         layout = QFormLayout()
         layout.addRow('Имя игрока:', self.name_edit)
         layout.addRow('Уровень сложности:', self.level_combo)
@@ -42,27 +39,30 @@ class SettingsWindow(QWidget):
         self.setWindowTitle('Настройки')
 
     def apply_settings(self):
-        # Получаем значения полей
+        self.save_settings()
+        self.close()
+        self.parent.apply_settings()
+
+    def save_settings(self):
         name = self.name_edit.text()
         level = self.level_combo.currentIndex() + 1
-
-        # Записываем настройки в файл
         with open('settings.ini', 'w') as f:
             f.write(f'name={name}\n')
             f.write(f'level={level}\n')
 
-        self.close()
-        self.parent.apply_settings()
+    def set_saved_settings(self):
+        settings = self.settings
+        name = settings.get('name', 'Player1')
+        level = int(settings.get('level', 1))
+        self.name_edit.setText(name)
+        self.level_combo.setCurrentIndex(level - 1)
 
-    def read_settings(self):
+    @property
+    def settings(self):
         try:
             with open('settings.ini', 'r') as f:
                 settings = dict(line.strip().split('=') for line in f)
-                name = settings.get('name', 'Player1')
-                level = int(settings.get('level', 1))
-                self.name_edit.setText(name)
-                self.level_combo.setCurrentIndex(level - 1)
-                return settings
+            return settings
         except FileNotFoundError:
             return {}
 

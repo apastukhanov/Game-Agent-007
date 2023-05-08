@@ -5,7 +5,7 @@ from PyQt5.QtCore import *
 import random
 import time
 
-from cell import Pos
+from cell import Cell
 from menu_windows import SettingsWindow, GameDescription
 
 
@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
         self.ws = SettingsWindow(parent=self)
         self.wd = GameDescription()
 
-        self.lvl = int(self.ws.read_settings().get('level', 1))
+        self.lvl = int(self.ws.settings.get('level', 1))
         self.b_size, self.n_mines = LEVELS[self.lvl - 1]
 
         self.start_x = -1
@@ -141,7 +141,7 @@ class MainWindow(QMainWindow):
     def init_map(self):
         for x in range(0, self.b_size):
             for y in range(0, self.b_size):
-                w = Pos(x, y)
+                w = Cell(x, y)
                 self.grid.addWidget(w, y, x)
                 # Connect signal to handle expansion.
                 w.clicked.connect(self.trigger_start)

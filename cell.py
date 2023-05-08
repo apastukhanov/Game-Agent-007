@@ -23,15 +23,21 @@ NUM_COLORS = {
 }
 
 
-class Pos(QWidget):
+class Cell(QWidget):
     expandable = pyqtSignal(int, int)
     clicked = pyqtSignal(int, int, int)
     explode_bomb = pyqtSignal()
+    start_x = 0
+    start_y = 0
 
     def __init__(self, x, y, *args, **kwargs):
-        super(Pos, self).__init__(*args, **kwargs)
+        super(Cell, self).__init__(*args, **kwargs)
 
         self.is_game_over = False
+        self.is_start = False
+        self.is_visited = False
+        self.is_mine = False
+        self.is_active = False
         self.setFixedSize(QSize(20, 20))
         self.x = x
         self.y = y
@@ -42,12 +48,7 @@ class Pos(QWidget):
         self.is_mine = False
         self.is_visited = False
         self.is_active = False
-        self.adjacent_n = 0
         self.is_game_over = False
-
-        self.is_revealed = False
-        self.is_flagged = False
-
         self.update()
 
     def paintEvent(self, event):
@@ -82,8 +83,33 @@ class Pos(QWidget):
 
         self.update()
 
+    @classmethod
+    def set_start_x(cls, x):
+        cls.start_x = x
+
+    @classmethod
+    def set_start_y(cls, y):
+        cls.start_y = y
+
+    @classmethod
+    def get_start_x(cls):
+        return cls.start_x
+
+    @classmethod
+    def get_start_y(cls):
+        return cls.start_y
+
+    @classmethod
+    def get_dist_start_x(cls, x):
+        return x - cls.start_x
+
+    @classmethod
+    def get_dist_start_y(cls, y):
+        return y - cls.start_y
+
     def reveal(self):
         self.is_game_over = True
+        self.is_active = False
         self.update()
 
     def click(self):
