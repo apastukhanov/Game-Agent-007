@@ -1,8 +1,9 @@
+import random
+
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
-import random
 
 IMG_BOMB = QImage("./images/bomb.png")
 IMG_FLAG = QImage("./images/flag.png")

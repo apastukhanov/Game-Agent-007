@@ -1,7 +1,7 @@
+from enum import Enum
+
 import random
 import time
-
-from enum import Enum
 
 from PyQt5.QtCore import QTimer, QSize
 from PyQt5.QtGui import QImage, QIcon

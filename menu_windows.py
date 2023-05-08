@@ -73,7 +73,6 @@ class GameDescription(QWidget):
         self.setWindowTitle("Описание игры")
         self.setGeometry(100, 100, 600, 400)
 
-        # Создаем метку с описанием игры
         description = ("Представляем вам логическую онлайн флеш игру повышенной сложности <b>Агент 007</b>! "
                        "<br><br>"
                        "Задача игры Агент 007 - селать как можно больше ходов, не подорвавшись на мине, "
@@ -86,11 +85,9 @@ class GameDescription(QWidget):
         label = QLabel(description)
         label.setWordWrap(True)
 
-        # Создаем кнопку Ok
         button_ok = QPushButton("Ok", self)
         button_ok.clicked.connect(self.close)
 
-        # Создаем вертикальный лэйаут и добавляем в него метку с описанием игры и кнопку Ok
         layout = QVBoxLayout(self)
         layout.addWidget(label)
         layout.addWidget(button_ok)
