@@ -10,29 +10,29 @@ This logic game belongs to the category of high-difficulty challenges, but its g
 
 ## Start Menu
 
-![Start Menu](https://github.com/apastukhanov/game_agent007/assets/36933268/a4fcfbac-f22a-4e04-a595-e4b14a47688c)
+![Start Menu](https://github.com/apastukhanov/Game-Agent-007/assets/36933268/85f56efa-87ae-4ef1-90ec-98a975f7f047)
 
 ---
 
 ## Game Plan
 
-![Game Plan](https://github.com/apastukhanov/game_agent007/assets/36933268/3475f9bd-2fe2-48f7-86c2-f553eb9b2fbf)
+![Game Plan](https://github.com/apastukhanov/Game-Agent-007/assets/36933268/f8b9d52b-e517-44f2-abcc-d0d0a96ed6e2)
 
 ---
 
 ## Game Over
 
-![Game Over](https://github.com/apastukhanov/game_agent007/assets/36933268/112f0abe-1042-4fec-966d-a51fa8cc48b9)
+![Game Over](https://github.com/apastukhanov/Game-Agent-007/assets/36933268/388a9ab7-3faa-4417-8d41-e97107657c38)
 
 ---
 
 ## Settings Menu
 
-![Settings Menu](https://github.com/apastukhanov/game_agent007/assets/36933268/11ff57aa-b747-456d-9d13-435bc0227c71)
+![Settings Menu](https://github.com/apastukhanov/Game-Agent-007/assets/36933268/31440da3-de31-4581-98b5-7395b84f6cfe)
 
 ---
 
 ## Game Rules
 
-![Game Rules](https://github.com/apastukhanov/game_agent007/assets/36933268/3d20072f-3fff-42db-add0-db91abc6f4e6)
+![Game Rules](https://github.com/apastukhanov/Game-Agent-007/assets/36933268/75078a1d-d94c-48b7-909f-4c4bca41845f)
 
